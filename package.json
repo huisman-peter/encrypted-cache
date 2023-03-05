@@ -1,0 +1,29 @@
+{
+  "name": "encrypted-cache",
+  "version": "1.0.0",
+  "description": "Encrypted browser cache",
+  "main": "index.js",
+  "scripts": {
+    "server": "npx local-web-server --stack lws-sw-allowed.mjs lws-static lws-index  -p 9090",
+    "dev:js": "esbuild src/encrypted-cache.ts --bundle --outfile=dist/encrypted-cache.js --watch",
+    "dev:sw": "esbuild src/encrypted-cache-sw.ts --bundle --outfile=dist/encrypted-cache-sw.js --watch",
+    "dev:demo": "esbuild src/demo.ts --bundle --outfile=dist/demo.js --watch",
+    "dev": "concurrently \"npm run server\" \"npm run dev:js\" \"npm run dev:sw\" \"npm run dev:demo\"",
+    "build:js": "esbuild src/encrypted-cache.ts --bundle --outfile=dist/encrypted-cache.js --minify",
+    "build:sw": "esbuild src/encrypted-cache-sw.ts --bundle --outfile=dist/encrypted-cache-sw.js --minify",
+    "build": "concurrently \"npm run build:js\" \"npm run build:sw\"",
+    "start": "concurrently \"npm run build\" \"npm run server\"",
+    "test": "jest ./src/test.spec.ts"
+  },
+  "author": "P.A. Huisman",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@types/jest": "^29.4.0",
+    "concurrently": "^7.6.0",
+    "esbuild": "^0.17.11",
+    "esbuild-jest": "^0.5.0",
+    "jest": "^29.4.3",
+    "jest-environment-jsdom": "^29.4.3",
+    "typescript": "^4.9.5"
+  }
+}
