@@ -32,10 +32,10 @@ async function fetchData() {
 
 Navigate to `http://localhost:9090`
 
-# Build
+## Build
 
 `npm run build`
 
-# Test
+## Test
 
 `npm run test`
