@@ -7,7 +7,7 @@ const doFetch = async () => {
   // console.log(customElements.get("encrypted-cache"))
   console.log("fetching");
   const data: string[] = await fetch(
-    "https://baconipsum.com/api/?type=all-meat&paras=3&start-with-lorem=1",
+    "foo.json",
     {
       headers: {
         "cache-ttl": "20", //cache for 20 seconds
@@ -18,7 +18,7 @@ const doFetch = async () => {
     .catch((e) => e);
 
   const data2: string[] = await fetch(
-    "https://baconipsum.com/api/?type=all-meat&paras=5",
+    "bar.json",
     {
       headers: {
         "cache-ttl": "120", //cache for 120 seconds
